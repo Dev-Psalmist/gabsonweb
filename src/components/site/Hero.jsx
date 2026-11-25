@@ -109,7 +109,7 @@ export default function Hero() {
                   className="h-full w-full"
                   focalPointY={0.4}
                   loading="eager"
-                  fetchPriority="low"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
                 <span className="absolute bottom-3 left-3 font-mono text-[9px] uppercase tracking-[0.28em] text-bone/60">
@@ -129,7 +129,7 @@ export default function Hero() {
                   className="h-full w-full"
                   focalPointY={0.42}
                   loading="eager"
-                  fetchPriority="low"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent" />
                 <span className="absolute bottom-2.5 left-2.5 font-mono text-[8px] uppercase tracking-[0.24em] text-bone/65">
