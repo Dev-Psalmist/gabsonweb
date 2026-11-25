@@ -15,6 +15,8 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preload", as: "image", href: "/images/b5dec2b64a31cd8dbe9bf9903396cd4b_hallway-clean.png", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: "/images/2056ef63df51c595dd44fbfb482d159d_Screenshot2026-11-25at14-43-12Instagram.png", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: "/images/82c28df07136ea48fa479173f30eb182_coralClose.png", fetchPriority: "high" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" },
