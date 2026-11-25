@@ -1,60 +1,40 @@
-# Gabson
+# Gabson — Precision in Style
 
-A digital storefront for bespoke tailoring: 3D-motion imagery, a lookbook, fabric library, journal and appointment booking, built around a dark, editorial look.
-
-Exported from Base44 so the code lives here in GitHub.
+Gabson is a digital storefront for a bespoke tailoring house in Abuja, Nigeria. The site preserves its editorial design, lookbook, fabric library, journal, atelier information, concierge and fitting-request experience.
 
 ## Stack
 
-- **React 19** + **TanStack Start / Router** (file-based routes in `src/routes`: `/` and `/book`)
-- **Tailwind CSS** + shadcn-style UI primitives in `src/components/ui`
-- **Vite 8** build
-- Site content, copy and image references live in `src/components/site/data.js`
+- React 19
+- TanStack Start and TanStack Router
+- Vite
+- Tailwind CSS
+- Vercel Functions for the API
+- Neon Postgres for fitting requests
 
 ## Local development
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build
-npm run preview  # serve the build
+npm run dev
 ```
 
-## Deploying (Vercel)
+## Production build
 
-The repo deploys as a static site with two serverless functions:
+```bash
+npm run build
+```
 
-- Build command `npm run build`, output directory `dist/client` (both set in `vercel.json`, which also rewrites unknown paths to the prerendered `index.html`)
-- Both routes are prerendered to real HTML at build time (`/` and `/book`)
-- Environment variable `DATABASE_URL` must be set (Production, Preview and Development) for bookings to save
+Vercel builds the app with `npm run build`, serves the generated client output, and deploys the functions in `api/`.
 
-Endpoints:
+## Environment variables
 
-| Route | What it does |
-| --- | --- |
-| `POST /api/bookings` | Validates a fitting request and inserts it into `bookings` |
-| `POST /api/concierge` | Answers the chat widget from the studio's own facts, with a WhatsApp handoff |
+Set `DATABASE_URL` in Vercel for production, preview and development as needed. It must be a Neon/Postgres connection string. The database schema is in `db/schema.sql`.
 
-Run `db/schema.sql` once against a new database to create the `bookings` table.
+## API
 
-## Data
+- `POST /api/bookings` — validates and stores a fitting request in the Neon `bookings` table.
+- `POST /api/concierge` — answers common atelier questions and hands other questions to WhatsApp.
 
-Two entities back the app, described in `base44/entities`:
+## Design and content
 
-| Entity | What it holds |
-| --- | --- |
-| `Booking` | Appointment requests from `/book` (name, contact, date, service, notes, status) |
-| `User` | App users and roles |
-
-`src/components/site/BookingForm.jsx` posts to `/api/bookings`, which stores the request in Postgres (`bookings` table: name, email, phone, service, date, time, location, notes, status, created_at). Read them with any Postgres client; a small admin page can sit on the same table.
-
-The chat widget posts to `/api/concierge`, a keyword-matching concierge that answers from the studio's facts (address, hours, services, process, contact) and hands anything else to WhatsApp. Swap it for an LLM endpoint if you want freer conversation.
-
-## Images
-
-Photography is served from Base44's public CDN (`media.base44.com`), so nothing needs copying into the repo. Swap the URLs in `src/components/site/data.js` if you move the assets.
-
-## Notes
-
-- `base44/.app.jsonc` links this checkout to a Base44 app and is git-ignored on purpose.
-- `DEPLOYMENT-NOTES.md` from the original build is kept for reference.
+The public site components and design are in `src/components/site/`; brand content and image references are in `src/components/site/data.js`. Keep these presentation files intact when changing infrastructure.
