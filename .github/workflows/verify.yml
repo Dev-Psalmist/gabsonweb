@@ -36,7 +36,7 @@ jobs:
           media = "https://media.base44.com/images/public/user_6afe1bcde98e1e348ba0da18"
           uploads = "https://media.base44.com/images/public/6b06f05c7525e90c5a9bfa73"
           resolved = source.replace("${MEDIA}", media).replace("${UPLOADS}", uploads)
-          urls = sorted(set(re.findall(r"https://media\.base44\.com/images/public/[^\s\x60\"']+", resolved)))
+          urls = sorted(set(re.findall(r"https://media\\.base44\\.com/images/public/[^\\s]+?\\.(?:png|jpe?g|webp|gif)", resolved, flags=re.I)))
           if not urls:
               raise SystemExit("No original Base44 image URLs were found.")
 
