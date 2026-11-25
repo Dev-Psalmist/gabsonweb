@@ -16,8 +16,9 @@ export default function Journal() {
           <div className="relative overflow-hidden border border-bone/10">
             <Image
               src={IMG.lapel}
-              alt="Black tuxedo jacket with pleated white shirt and bow tie"
-              className="aspect-[5/4] w-full"
+              alt="Full view of the tailored suit with pleated white shirt and bow tie"
+              fittingType="fit"
+              className="aspect-[3/4] w-full bg-ink"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
           </div>
