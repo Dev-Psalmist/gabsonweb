@@ -75,7 +75,12 @@ jobs:
           git add public/images src/components/site/data.js
           if ! git diff --cached --quiet; then
             git commit -m "assets: move original Gabson images off Base44 CDN"
-            git push
+            for attempt in 1 2 3; do
+              git push && exit 0
+              echo "Push attempt $attempt failed; retrying..."
+              sleep 8
+            done
+            exit 1
           fi
 
       - name: Set up Node.js
