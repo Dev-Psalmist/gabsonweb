@@ -34,7 +34,7 @@ export default function Atelier() {
             <Image
               src={IMG.facade}
               alt="Couple in bespoke formal wear outside a colonnaded building"
-              className="aspect-[4/5] w-full grayscale transition-all duration-700 hover:grayscale-0"
+              className="aspect-[5/6] w-full grayscale transition-all duration-700 hover:grayscale-0"
             />
           </div>
           <div className="absolute -bottom-8 right-3 w-44 border border-ink/10 bg-bone p-4 sm:right-6 sm:w-52">
