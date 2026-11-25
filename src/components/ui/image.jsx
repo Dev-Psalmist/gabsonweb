@@ -69,7 +69,7 @@ const Image = React.forwardRef(
             : "center",
         ...props.style,
       },
-      loading: props.loading ?? "lazy",
+      loading: props.loading ?? "eager",
       decoding: props.decoding ?? "async",
       onError: handleError,
     }
