@@ -17,7 +17,7 @@ export default function Journal() {
             <Image
               src={IMG.lapel}
               alt="Black tuxedo jacket with pleated white shirt and bow tie"
-              className="aspect-[4/3] w-full"
+              className="aspect-[5/4] w-full"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
           </div>
