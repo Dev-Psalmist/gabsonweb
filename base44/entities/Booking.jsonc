@@ -1,0 +1,84 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "Name of the person requesting the fitting"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address for the confirmation"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone or WhatsApp number"
+    },
+    "service": {
+      "type": "string",
+      "description": "What the client wants made or discussed"
+    },
+    "preferred_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested fitting date"
+    },
+    "preferred_time": {
+      "type": "string",
+      "description": "Requested fitting time"
+    },
+    "location": {
+      "type": "string",
+      "description": "Where the session should happen"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Occasion, timeline or anything else the studio should know"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "confirmed",
+        "completed",
+        "cancelled"
+      ],
+      "enumColors": [
+        "blue",
+        "yellow",
+        "green",
+        "gray",
+        "red"
+      ],
+      "default": "new",
+      "description": "Where the request stands"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "phone",
+    "service",
+    "preferred_date",
+    "preferred_time"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

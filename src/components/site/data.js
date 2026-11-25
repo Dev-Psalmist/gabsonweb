@@ -1,0 +1,401 @@
+const MEDIA = "https://media.base44.com/images/public/user_6afe1bcde98e1e348ba0da18";
+const UPLOADS =
+  "https://base44.app/api/apps/6b06f05c7525e90c5a9bfa73/files/mp/public/6b06f05c7525e90c5a9bfa73";
+
+// Cropped out of the white plate and recoloured bone so it sits directly on ink.
+export const LOGO = `${UPLOADS}/77ab9d5f5133af3ed733082a1b6905ec_gabson-mark-bone.png`;
+
+export const IMG = {
+  facade: `${MEDIA}/c53c7c710752374ec75a3240153afe80_Screenshot2026-11-25at14-41-38Instagram.png`,
+  seated: `${UPLOADS}/6226c459ef93faeae44a851dc10a228c_seated-clean.png`,
+  park: `${MEDIA}/4e7c4d0ff7f4e8ab58080ff114a07152_Screenshot2026-11-25at14-43-00Instagram.png`,
+  kiss: `${MEDIA}/2056ef63df51c595dd44fbfb482d159d_Screenshot2026-11-25at14-43-12Instagram.png`,
+  hallway: `${UPLOADS}/b5dec2b64a31cd8dbe9bf9903396cd4b_hallway-clean.png`,
+  car: `${MEDIA}/23bad51b515c9ef21efab076506db532_Screenshot2026-11-25at14-44-20Instagram.png`,
+  railing: `${MEDIA}/a941b0b85e93e4d4588cc57fd1bb8e35_Screenshot2026-11-25at14-44-35Instagram.png`,
+  collars: `${MEDIA}/1f915fa46f9f557c11d9aefaa4217b27_Screenshot2026-11-25at14-45-01Instagram.png`,
+  lapel: `${MEDIA}/a344c1175ad22ec662a4d179a385a1e9_Screenshot2026-11-25at14-45-23Instagram.png`,
+  durability: `${UPLOADS}/e4493aca05e1120a4f51748fe18590aa_durability.png`,
+  graduation: `${UPLOADS}/3759c75523360521c6db0dda5510b706_graduation.png`,
+  groomsDeck: `${UPLOADS}/f21921ab41cda56468ee06e03f5141c6_groomsDeck.png`,
+  groomsLine: `${UPLOADS}/8805fe7b6c09a7f9888c743fb1fd40f9_groomsLine.png`,
+  beigePortrait: `${UPLOADS}/cf9c31244143fa2192f9e11fec068a00_beigePortrait.png`,
+  bwLadies: `${UPLOADS}/8a0a25ca9e83ff5d3af8eb2182396f0b_bwLadies.png`,
+  agbadaSeated: `${UPLOADS}/3bde51791b85ab9a000652683541c2ed_agbadaSeated.png`,
+  coupleAgbada: `${UPLOADS}/c6b756838927bd83f0f5cf87cf215c3a_coupleAgbada.png`,
+  agbadaGroup: `${UPLOADS}/b37f51342da74e61af45cefeaf125567_agbadaGroup.png`,
+  tuxGreeting: `${UPLOADS}/88c8cdabd2a1b64ca869421798fa6897_tuxGreeting.png`,
+  coralCouple: `${UPLOADS}/b81393de5e06f98baf95474d1ed0eb3e_coralCouple.png`,
+  magentaWrapper: `${UPLOADS}/77c520f21a95d9b86a530a7bd4e25908_magentaWrapper.png`,
+  whiteTuxWatch: `${UPLOADS}/b5590cdef6006824320dd48654635e6a_whiteTuxWatch.png`,
+  whiteTuxStand: `${UPLOADS}/cc9e5fff3a89b203432bf27adfb64a68_whiteTuxStand.png`,
+  whiteTuxFull: `${UPLOADS}/8930a8e5ae5c1030281b6fcf43c73cd8_whiteTuxFull.png`,
+  whiteLaceCouple: `${UPLOADS}/ce6eae6e655c7f571fa1c2c659d8b9b2_whiteLaceCouple.png`,
+  coralClose: `${UPLOADS}/82c28df07136ea48fa479173f30eb182_coralClose.png`,
+  whiteSuitWoman: `${UPLOADS}/624bdf04af926d25dfff36977537ef26_whiteSuitWoman.png`,
+  burgundyAgbada: `${UPLOADS}/164994c72d365fad4208e8fe894b60ca_burgundyAgbada.png`,
+  blackTuxPath: `${UPLOADS}/b23f7e9989bc602b16e4819ded1f7018_blackTuxPath.png`,
+  tuxLobby: `${UPLOADS}/dc3bb0bc424e54680c8d1b244d32efc7_tuxLobby.png`,
+  linenShirt: `${UPLOADS}/92261ded49a9cc0e1aa0fc53c31d3aaa_linenShirt.png`,
+  navyJacket: `${UPLOADS}/bc9920cc4c89befad085f9848d614b61_navyJacket.png`,
+  twoMenNight: `${UPLOADS}/3024e03f274707a13f97050910165939_twoMenNight.png`,
+  blackTuxStand: `${UPLOADS}/548e4bd3d702ed5a917eeb54d1cfb1b3_blackTuxStand.png`,
+  pinstripeDB: `${UPLOADS}/0331b2206fed1deec3568b53b572b530_pinstripeDB.png`,
+  charcoalDB: `${UPLOADS}/96173273fd5e6141d5af822490ac5c66_charcoalDB.png`,
+  damaskShawl: `${UPLOADS}/ab9c0dcc17224d288ecda193356f31b5_damaskShawl.png`,
+  damaskRoom: `${UPLOADS}/4cb3084494379339c6a28d02a243ac9e_damaskRoom.png`,
+  creamAgbada: `${UPLOADS}/6e3a4519e5ac663899319819cf107c12_creamAgbada.png`,
+};
+
+export const BRAND = "Gabson";
+export const TAGLINE = "Precision in style";
+
+export const ADDRESS = {
+  line1: "Elgolea Close, Wuse 2",
+  line2: "FCT Abuja, Nigeria",
+  full: "Elgolea Close, Wuse 2, FCT Abuja, Nigeria",
+  coords: { lat: 9.0707526, lng: 7.4693253 },
+};
+
+export const PHONE_DISPLAY = "+234 813 599 8158";
+export const WHATSAPP = "2348135998158";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+  "Hello Gabson, I would like to book a fitting."
+)}`;
+export const EMAIL = "jeneagabson02@gmail.com";
+export const EMAIL_LINK = `mailto:${EMAIL}`;
+export const INSTAGRAM_HANDLE = "Gabson.official";
+export const INSTAGRAM_LINK = "https://instagram.com/Gabson.official";
+
+export const DIRECTIONS_LINK = `https://www.google.com/maps/dir/?api=1&destination=${
+  ADDRESS.coords.lat
+},${ADDRESS.coords.lng}&destination_place_id=&travelmode=driving`;
+
+export const NAV = [
+  { label: "Lookbook", href: "#lookbook" },
+  { label: "Atelier", href: "#atelier" },
+  { label: "Cloth", href: "#cloth" },
+  { label: "Studio", href: "#studio" },
+];
+
+export const LOOKS = [
+  {
+    id: "L-02",
+    img: IMG.seated,
+    title: "The Ivory Salon",
+    occasion: "Engagement dinner",
+    fabric: "Wool-silk blend · pearl-tipped collar chain",
+    cut: "Single-breasted, soft shoulder, tapered trouser",
+    note: "Drafted for sitting: the jacket is shortened 8mm at the waist so it stays clean through a long dinner.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[4/5]",
+  },
+  {
+    id: "L-03",
+    img: IMG.park,
+    title: "The Emerald Bandhgala",
+    occasion: "Garden ceremony",
+    fabric: "Forest green wool crepe · silver hardware",
+    cut: "High stand collar, hidden stretch panel",
+    note: "A bandhgala engineered so the collar never gaps when you reach, greet or dance.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-04",
+    img: IMG.kiss,
+    title: "Midnight & Crystal",
+    occasion: "Traditional wedding",
+    fabric: "Wool tuxedo · grosgrain satin peak lapel",
+    cut: "Hand-padded chest, suppressed waist",
+    note: "The boutonnière is anchored by a hidden loop — no pin ever touches the silk.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-05",
+    img: IMG.car,
+    title: "The Forest Two-Piece",
+    occasion: "Editorial · Wuse",
+    fabric: "Forest green fresco wool",
+    cut: "Unstructured shoulder, patch pocket",
+    note: "Fresco weave for the Abuja heat: it breathes at 34°C and still holds its crease.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    id: "L-06",
+    img: IMG.railing,
+    title: "High-Collar Precision",
+    occasion: "Reception",
+    fabric: "Textured forest wool · bone silk gown",
+    cut: "Mandarin collar, sculpted waist",
+    note: "The collar is drafted to the jawline so it frames the face in every frame.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    id: "L-07",
+    img: IMG.graduation,
+    title: "The Nile Regalia",
+    occasion: "Academic ceremony · Abuja",
+    fabric: "Wool-blend gown · royal blue velvet panels",
+    cut: "Maroon shell, gold-piped facings, hand-set hood",
+    note: "Cut to sit over a full suit without pulling at the shoulder — the hood is pinned so it never slips mid-procession.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-08",
+    img: IMG.beigePortrait,
+    title: "The Sand Jacket",
+    occasion: "Reception · Wuse",
+    fabric: "Wool-linen in sand · botanical silk tie",
+    cut: "Half-canvassed, soft shoulder, patch pocket",
+    note: "A wool-linen blend chosen for a warm evening: it holds a crease but never looks pressed-on.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-10",
+    img: IMG.coupleAgbada,
+    title: "Cream & Flame",
+    occasion: "Traditional engagement",
+    fabric: "Beaded red-gold bodice · cream agbada",
+    cut: "Strapless bodice, fringed skirt, matching gele",
+    note: "Her sequins and his embroidery were matched under the hall's warm light so the pair reads as one composition in photographs.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[4/5]",
+  },
+  {
+    id: "L-11",
+    img: IMG.bwLadies,
+    title: "Evening, After the Ceremony",
+    occasion: "Evening wear · Abuja",
+    fabric: "Draped satin · one-shoulder bodices",
+    cut: "Bias-cut skirts, hand-finished hems",
+    note: "Three gowns drafted together for one evening — satin cut on the bias so it never fights the body when you move.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[4/5]",
+  },
+  {
+    id: "L-12",
+    img: IMG.coralCouple,
+    title: "Coral & Burgundy",
+    occasion: "Traditional engagement · Abuja",
+    fabric: "White kaftan · burgundy velvet bodice",
+    cut: "Tiered coral strands, bead crown, mesh overlay",
+    note: "The coral is strung in graduated tiers so it sits on the collarbone rather than the throat — here the beads carry the silhouette, not the cloth.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-13",
+    img: IMG.magentaWrapper,
+    title: "The Magenta Wrapper",
+    occasion: "Traditional ceremony · Abuja",
+    fabric: "White senator tunic · magenta velvet wrapper",
+    cut: "Hand-finished fan, coral at both wrists",
+    note: "The velvet wrapper is lined so it keeps its fall through a full day of standing, and the fan is balanced to sit still in photographs.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[2/3]",
+  },
+  {
+    id: "L-14",
+    img: IMG.whiteTuxStand,
+    title: "The Midday Dinner Jacket",
+    occasion: "Garden ceremony",
+    fabric: "White piqué dinner jacket · satin shawl",
+    cut: "Pleated shirt, black cummerbund, black trousers",
+    note: "Cut a touch longer than a black-tie jacket so the cummerbund never breaks the line when you stand with a hand in your pocket.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[7/10]",
+  },
+  {
+    id: "L-15",
+    img: IMG.whiteLaceCouple,
+    title: "Lace & Piqué",
+    occasion: "Ceremony · Abuja",
+    fabric: "Beaded lace gown · piqué dinner jacket",
+    cut: "High neck, pearl-button back, gold brooch",
+    note: "The gown's lace is appliquéd onto tulle by hand so the pattern follows the bodice seams instead of fighting them.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[5/7]",
+  },
+  {
+    id: "L-16",
+    img: IMG.whiteSuitWoman,
+    title: "The White Suit, Seated",
+    occasion: "Editorial · studio",
+    fabric: "White wool-crepe blazer and trouser",
+    cut: "Soft shoulder, straight leg, wine heel",
+    note: "A woman's suit cut from the same block as the men's — soft at the shoulder, suppressed at the waist only enough to sit.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[4/5]",
+  },
+  {
+    id: "L-17",
+    img: IMG.burgundyAgbada,
+    title: "Burgundy, Silver-Stitched",
+    occasion: "Agbada commission · on the stand",
+    fabric: "Silk-blend burgundy · silver-white embroidery",
+    cut: "Vertical stripe panel, chevron border",
+    note: "Photographed on the stand before delivery: the embroidery is laid in vertical bands so the pattern falls straight once it is worn.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-18",
+    img: IMG.blackTuxPath,
+    title: "The Black Shawl",
+    occasion: "Evening · Abuja",
+    fabric: "Textured black wool · shawl lapel",
+    cut: "Black bow tie, pocket square, clean shirt front",
+    note: "A shawl lapel in a textured weave rather than satin — it photographs matte and never catches the flash.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-19",
+    img: IMG.tuxLobby,
+    title: "The Lobby Tuxedo",
+    occasion: "Black tie · Abuja",
+    fabric: "Black barathea wool · grosgrain peak lapel",
+    cut: "Single button, jetted pockets, self-faced bow",
+    note: "Cut for a man who stands with his hands clasped — the waist is shaped slightly higher so the jacket falls clean instead of bowing.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-20",
+    img: IMG.linenShirt,
+    title: "The Line-Drawn Shirt",
+    occasion: "Resort · made to order",
+    fabric: "Beige linen · black line-art embroidery",
+    cut: "Stiff collar, seven-button placket, hand-guided stitching",
+    note: "The drawing is stitched after the shirt is cut, following the panel's grain so the line stays level once it is worn.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-22",
+    img: IMG.twoMenNight,
+    title: "Two on the Street, After Dark",
+    occasion: "Evening · Abuja",
+    fabric: "Grey plaid wool · black high-collar tunic",
+    cut: "Red tie and red fila, matching buckle shoes",
+    note: "Two commissions photographed together: a checked city suit, and a collarless tunic cut long enough to read as evening dress.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-23",
+    img: IMG.blackTuxStand,
+    title: "Peak Lapel, on the Stand",
+    occasion: "Black tie · on the stand",
+    fabric: "Black barathea · satin peak lapel",
+    cut: "Single button, pleated bib, silk bow",
+    note: "Photographed before delivery — the lapel roll is pressed by hand so the satin never flattens against the chest.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-24",
+    img: IMG.pinstripeDB,
+    title: "Pinstripe, Double-Breasted",
+    occasion: "Business · made to order",
+    fabric: "Charcoal pinstripe wool",
+    cut: "Six-button front, peak lapel, straight pocket",
+    note: "Double-breasted on a narrow stripe: the chalk line is matched across the lapel seam, which is where cheaper work shows.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-25",
+    img: IMG.charcoalDB,
+    title: "Charcoal Under the Sconce",
+    occasion: "Evening · made to order",
+    fabric: "Charcoal wool · white shirt",
+    cut: "Double-breasted, roped shoulder",
+    note: "Cut with a slightly roped shoulder so the jacket holds its shape under low, warm light.",
+    span: "lg:col-span-7",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-26",
+    img: IMG.damaskShawl,
+    title: "Damask, Close Up",
+    occasion: "Black tie · fabric study",
+    fabric: "Black tonal damask · satin shawl lapel",
+    cut: "Single button, pleated bib, silk bow",
+    note: "The damask is woven, not printed — from across a room it reads as plain black, and only up close does the pattern appear.",
+    span: "lg:col-span-5",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-27",
+    img: IMG.damaskRoom,
+    title: "Damask, in the Room",
+    occasion: "Black tie · on the stand",
+    fabric: "Black tonal damask · satin shawl",
+    cut: "Shawl lapel, covered button, clean front",
+    note: "The same cloth from further back: the shawl keeps a soft edge so the pattern carries all the way to the shoulder line.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    id: "L-28",
+    img: IMG.creamAgbada,
+    title: "Cream Agbada, Gold Maze",
+    occasion: "Agbada commission · on the stand",
+    fabric: "Cream jacquard · gold-brown geometric embroidery",
+    cut: "Star motif, maze border, house label at the neck",
+    note: "The chest panel is mapped on paper first — the maze border is what frames the motif and keeps it centred on the body.",
+    span: "lg:col-span-6",
+    ratio: "aspect-[4/5]",
+  },
+];
+
+export const SERVICES = [
+  "Bespoke suit — two or three piece",
+  "Native & traditional (agbada, kaftan, bandhgala)",
+  "Ceremonial & wedding (groom or couple)",
+  "Children's occasion wear",
+  "Wardrobe consultation",
+  "Alterations & restoration",
+];
+
+export const TIME_SLOTS = ["09:00", "11:30", "14:00", "16:30", "18:00"];
+
+export const LOCATIONS = ["Atelier — Wuse 2", "Virtual consultation", "Home visit (Abuja)"];
+
+export const TESTIMONIALS = [
+  {
+    quote:
+      "The precision of the fit is unmatched. It feels less like a suit and more like an extension of my identity.",
+    name: "Adebayo K.",
+    role: "Executive Director, Abuja",
+    service: "Three-piece bespoke suit",
+  },
+  {
+    quote:
+      "Gabson brings a level of technical sophistication to tailoring I haven't seen in London or Milan. Every seam was explained to me before it was cut.",
+    name: "Elena V.",
+    role: "Fashion consultant",
+    service: "Consultation & capsule wardrobe",
+  },
+  {
+    quote:
+      "My gown was fitted three times before the wedding. On the day it moved like water — nothing pulled, nothing shifted, all night.",
+    name: "Amaka O.",
+    role: "Bride, Wuse 2",
+    service: "Bridal commission",
+  },
+];
+
+export const STATS = [
+  { value: "2016", label: "House established" },
+  { value: "1,200+", label: "Garments delivered" },
+  { value: "3", label: "Fittings per piece" },
+  { value: "21", label: "Days, average build" },
+];
