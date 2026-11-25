@@ -20,6 +20,23 @@ npm run build    # production build
 npm run preview  # serve the build
 ```
 
+## Deploying (Vercel)
+
+The repo deploys as a static site with two serverless functions:
+
+- Build command `npm run build`, output directory `dist/client` (both set in `vercel.json`, which also rewrites unknown paths to the prerendered `index.html`)
+- Both routes are prerendered to real HTML at build time (`/` and `/book`)
+- Environment variable `DATABASE_URL` must be set (Production, Preview and Development) for bookings to save
+
+Endpoints:
+
+| Route | What it does |
+| --- | --- |
+| `POST /api/bookings` | Validates a fitting request and inserts it into `bookings` |
+| `POST /api/concierge` | Answers the chat widget from the studio's own facts, with a WhatsApp handoff |
+
+Run `db/schema.sql` once against a new database to create the `bookings` table.
+
 ## Data
 
 Two entities back the app, described in `base44/entities`:
@@ -29,7 +46,9 @@ Two entities back the app, described in `base44/entities`:
 | `Booking` | Appointment requests from `/book` (name, contact, date, service, notes, status) |
 | `User` | App users and roles |
 
-`src/components/site/BookingForm.jsx` writes through `@base44/sdk` to the `Booking` entity, using `VITE_BASE44_APP_ID`. That call needs the Base44 app published, or it can be pointed at any API of your own by swapping the `base44.entities.Booking.create(...)` line for a `fetch`.
+`src/components/site/BookingForm.jsx` posts to `/api/bookings`, which stores the request in Postgres (`bookings` table: name, email, phone, service, date, time, location, notes, status, created_at). Read them with any Postgres client; a small admin page can sit on the same table.
+
+The chat widget posts to `/api/concierge`, a keyword-matching concierge that answers from the studio's facts (address, hours, services, process, contact) and hands anything else to WhatsApp. Swap it for an LLM endpoint if you want freer conversation.
 
 ## Images
 
