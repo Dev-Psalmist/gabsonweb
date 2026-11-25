@@ -11,7 +11,6 @@ permissions:
 
 jobs:
   migrate-and-build:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -33,39 +32,46 @@ jobs:
 
           data_path = Path("src/components/site/data.js")
           source = data_path.read_text()
-          roots = {
-              "MEDIA": "https://media.base44.com/images/public/user_6afe1bcde98e1e348ba0da18",
-              "UPLOADS": "https://media.base44.com/images/public/6b06f05c7525e90c5a9bfa73",
-          }
-          matches = re.findall(r'\$\{(MEDIA|UPLOADS)\}/([^\x60]+)', source)
-          assets = {}
-          for root, filename in matches:
-              filename = filename.strip()
-              if filename.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".gif")):
-                  assets[filename] = roots[root] + "/" + filename
-          if not assets:
-              raise SystemExit("No original Gabson image files were found in data.js.")
-
           target = Path("public/images")
           target.mkdir(parents=True, exist_ok=True)
-          for filename, url in assets.items():
-              print(f"Downloading {filename}", flush=True)
-              request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-              with urllib.request.urlopen(request, timeout=60) as response:
-                  content_type = response.headers.get("Content-Type", "")
-                  payload = response.read()
-              if not content_type.startswith("image/") or len(payload) < 128:
-                  raise RuntimeError(f"Invalid image response for {filename}: {content_type}, {len(payload)} bytes")
-              (target / filename).write_bytes(payload)
-              print(f"Saved {filename}: {len(payload)} bytes", flush=True)
+          if "media.base44.com" not in source and "${MEDIA}" not in source and "${UPLOADS}" not in source:
+              existing = list(target.glob("*"))
+              if len(existing) < 40 or "/images/" not in source:
+                  raise SystemExit("The local image migration is incomplete.")
+              print(f"Original assets are already local: {len(existing)} files.")
+          else:
+              roots = {
+                  "MEDIA": "https://media.base44.com/images/public/user_6afe1bcde98e1e348ba0da18",
+                  "UPLOADS": "https://media.base44.com/images/public/6b06f05c7525e90c5a9bfa73",
+              }
+              matches = re.findall(r'\$\{(MEDIA|UPLOADS)\}/([^\x60]+)', source)
+              assets = {}
+              for root, filename in matches:
+                  filename = filename.strip()
+                  if filename.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".gif")):
+                      assets[filename] = roots[root] + "/" + filename
+              if not assets:
+                  raise SystemExit("No original Gabson image files were found in data.js.")
 
-          source = re.sub(r'^const MEDIA = .*?;\n', '', source, count=1, flags=re.M)
-          source = re.sub(r'^const UPLOADS =\n  .*?;\n', '', source, count=1, flags=re.M)
-          source = source.replace("${MEDIA}/", "/images/").replace("${UPLOADS}/", "/images/")
-          if "media.base44.com" in source or "${MEDIA}" in source or "${UPLOADS}" in source:
-              raise SystemExit("Base44 media references remain after asset rewrite.")
-          data_path.write_text(source)
-          print(f"Successfully extracted {len(assets)} original Gabson assets.")
+              for filename, url in assets.items():
+                  print(f"Downloading {filename}", flush=True)
+                  request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  with urllib.request.urlopen(request, timeout=60) as response:
+                      content_type = response.headers.get("Content-Type", "")
+                      payload = response.read()
+                  if not content_type.startswith("image/") or len(payload) < 128:
+                      raise RuntimeError(f"Invalid image response for {filename}: {content_type}, {len(payload)} bytes")
+                  (target / filename).write_bytes(payload)
+                  print(f"Saved {filename}: {len(payload)} bytes", flush=True)
+
+              source = re.sub(r'^const MEDIA = .*?;\n', '', source, count=1, flags=re.M)
+              source = re.sub(r'^const UPLOADS =\n  .*?;\n', '', source, count=1, flags=re.M)
+              source = source.replace("${MEDIA}/", "/images/").replace("${UPLOADS}/", "/images/")
+              if "media.base44.com" in source or "${MEDIA}" in source or "${UPLOADS}" in source:
+                  raise SystemExit("Base44 media references remain after asset rewrite.")
+              data_path.write_text(source)
+              print(f"Successfully extracted {len(assets)} original Gabson assets.")
+
           PY
 
       - name: Commit migrated assets
