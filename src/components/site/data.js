@@ -107,7 +107,7 @@ export const LOOKS = [
     cut: "Hand-padded chest, suppressed waist",
     note: "The boutonnière is anchored by a hidden loop — no pin ever touches the silk.",
     span: "lg:col-span-7",
-    ratio: "aspect-[3/4]",
+    ratio: "aspect-[4/5]",
   },
   {
     id: "L-05",
@@ -118,7 +118,7 @@ export const LOOKS = [
     cut: "Unstructured shoulder, patch pocket",
     note: "Fresco weave for the Abuja heat: it breathes at 34°C and still holds its crease.",
     span: "lg:col-span-6",
-    ratio: "aspect-[4/3]",
+    ratio: "aspect-[5/4]",
   },
   {
     id: "L-06",
