@@ -58,7 +58,19 @@ const Image = React.forwardRef(
 
     const imageProps = {
       ...props,
-      className: preview && preview.sourceClassName === props.className ? preview.className : props.className,
+      className: [
+        fittingType === "fit" ? "object-contain" : "object-cover",
+        preview && preview.sourceClassName === props.className ? preview.className : props.className,
+      ].filter(Boolean).join(" "),
+      style: {
+        objectPosition:
+          typeof focalPointX === "number" || typeof focalPointY === "number"
+            ? `${(focalPointX ?? 0.5) * 100}% ${(focalPointY ?? 0.5) * 100}%`
+            : "center",
+        ...props.style,
+      },
+      loading: props.loading ?? "lazy",
+      decoding: props.decoding ?? "async",
       onError: handleError,
     }
 
