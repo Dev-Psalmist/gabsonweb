@@ -34,7 +34,7 @@ Run `db/schema.sql` once against a new PostgreSQL database to create the booking
 
 ## Images
 
-The visual design and image references are preserved. The current photographs and logo are still served from public image CDN URLs in `src/components/site/data.js`. To complete full infrastructure independence, those original image files still need to be copied into project-owned storage and the references updated. This does not affect the layout or the booking/chat APIs.
+The original Gabson logo and 39 fashion photographs have been copied into `public/images/`. All 40 image references in `src/components/site/data.js` now use local `/images/...` paths. The storefront no longer depends on Base44's media CDN.
 
 ## Security
 
