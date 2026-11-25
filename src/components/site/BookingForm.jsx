@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 import { LOCATIONS, SERVICES, TIME_SLOTS, WHATSAPP_LINK } from "./data";
 import FormField from "./FormField";
 
@@ -46,13 +45,17 @@ export default function BookingForm() {
 
     setSaving(true);
     try {
-      await base44.entities.Booking.create({
-        ...values,
-        full_name: values.full_name.trim(),
-        email: values.email.trim(),
-        phone: values.phone.trim(),
-        status: "new",
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          full_name: values.full_name.trim(),
+          email: values.email.trim(),
+          phone: values.phone.trim(),
+        }),
       });
+      if (!response.ok) throw new Error(`Booking failed: ${response.status}`);
       setDone(true);
     } catch {
       setError("That request didn't go through. Please try again or message us on WhatsApp.");

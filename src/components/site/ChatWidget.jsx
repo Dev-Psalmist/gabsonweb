@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, MessageCircle, Send, X } from "lucide-react";
-import { askConcierge } from "@/lib/server-fns";
 import { WHATSAPP_LINK } from "./data";
 
 const CHIPS = ["Book a fitting", "Do you make children's wear?", "Where is the studio?"];
@@ -18,7 +16,6 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState([GREETING]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
-  const ask = useServerFn(askConcierge);
   const endRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +35,13 @@ export default function ChatWidget() {
     setBusy(true);
 
     try {
-      const result = await ask({ data: { message, history } });
+      const response = await fetch("/api/concierge", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, history }),
+      });
+      if (!response.ok) throw new Error(`Concierge failed: ${response.status}`);
+      const result = await response.json();
       setMessages((prev) => [
         ...prev,
         {

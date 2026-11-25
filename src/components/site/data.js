@@ -1,6 +1,6 @@
 const MEDIA = "https://media.base44.com/images/public/user_6afe1bcde98e1e348ba0da18";
 const UPLOADS =
-  "https://base44.app/api/apps/6b06f05c7525e90c5a9bfa73/files/mp/public/6b06f05c7525e90c5a9bfa73";
+  "https://media.base44.com/images/public/6b06f05c7525e90c5a9bfa73";
 
 // Cropped out of the white plate and recoloured bone so it sits directly on ink.
 export const LOGO = `${UPLOADS}/77ab9d5f5133af3ed733082a1b6905ec_gabson-mark-bone.png`;
