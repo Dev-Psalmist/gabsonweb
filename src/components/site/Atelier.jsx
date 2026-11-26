@@ -33,7 +33,9 @@ export default function Atelier() {
           <div className="overflow-hidden">
             <Image
               src={IMG.facade}
-              alt="Couple in bespoke formal wear outside a colonnaded building"
+              alt="Full-length couple in bespoke formal wear outside a colonnaded building"
+              focalPointX={0.5}
+              focalPointY={1}
               className="aspect-[4/5] w-full grayscale transition-all duration-700 hover:grayscale-0"
             />
           </div>
